@@ -11,7 +11,80 @@
 #   url      : DOI 또는 논문 링크 (없으면 "")
 # ───────────────────────────────────────────────
 
+# ── 2026 ──
+- year: 2026
+  scope: 국제
+  authors: "Lee G, Kim B, Kim DS"
+  title: "Barriers to facilitate antimicrobial stewardship of hospital clinicians in Korea: a mixed-methods study using a qualitative study and survey results"
+  journal: "Antimicrob Resist Infect Control"
+  citation: "2026 May 21"
+  role: 교신저자
+  url: "https://doi.org/10.1186/s13756-026-01763-2"
+
+- year: 2026
+  scope: 국제
+  authors: "An JE, Cho J, Kim MJ, Lee AY, Sim WJ, Hong KY, Lee SH, Kim DS, Yi SY, Lee KM, Yu SY"
+  title: "Indirect Treatment Comparison of Riociguat Replacement Therapy and Selexipag Add-on Therapy in Patients With Pulmonary Arterial Hypertension: Results From a Systematic Review"
+  journal: "Rev Cardiovasc Med"
+  citation: "2026 May 27;27(5):46524"
+  role: ""
+  url: "https://doi.org/10.31083/RCM46524"
+
+- year: 2026
+  scope: 국제
+  authors: "Kim KH, Kim C, Song I, Kim DS"
+  title: "Nationwide trends in antipsychotic and co-medication prescribing for schizophrenia: analysis of National Health Insurance data (2011-2023)"
+  journal: "Psychiatry Res"
+  citation: "2026 Jul;361:117159"
+  role: 교신저자
+  url: ""
+
+- year: 2026
+  scope: 국제
+  authors: "Park CM, Song I, Kim DS"
+  title: "Time series analysis of the new tiering pricing policy for generic medicines in South Korea"
+  journal: "Front Pharmacol"
+  citation: "2026 Mar 31;17:1763230"
+  role: 공동1저자
+  url: "https://doi.org/10.3389/fphar.2026.1763230"
+
+- year: 2026
+  scope: 국제
+  authors: "Ahn SM, Lee Y, Heo SJ, Yun IJ, Park HW, Park YS, Kim DS, Kim YC"
+  title: "Physicians' understanding of antibiotic prescribing in Korean long-term care hospitals: a multicenter cross-sectional study"
+  journal: "J Health Popul Nutr"
+  citation: "2026 Apr 1;45(1):109"
+  role: ""
+  url: "https://doi.org/10.1186/s41043-026-01249-2"
+
+- year: 2026
+  scope: 국제
+  authors: "Choi JB, Kim DS, Shin CE, Yu SY, Lee KW, Lee SJ"
+  title: "Expert Consensus Study on the Redesign of the Sexually Transmitted Infection Surveillance System in Korea"
+  journal: "J Korean Med Sci"
+  citation: "2026 Jan 5;41(1):e18"
+  role: ""
+  url: "https://doi.org/10.3346/jkms.2026.41.e18"
+
+- year: 2026
+  scope: 국제
+  authors: "Park JY, Chae J, Choe YJ, Kim Y, Shin J, Kim DS, Lee H"
+  title: "Trends in Antibiotic Use for Pediatric Patients With Pneumonia: A Nationwide Analysis in South Korea (2016-2023)"
+  journal: "Pediatr Infect Dis J"
+  citation: "2026 Feb 1;45(2):152-158"
+  role: 공동교신저자
+  url: "https://doi.org/10.1097/INF.0000000000004995"
+
 # ── 2025 ──
+- year: 2025
+  scope: 국제
+  authors: "Choi WS, Kim KH, Kim DS, Lee SH, An JE, Yu SY"
+  title: "Increased 30-day mortality risk in COVID-19 compared with seasonal influenza"
+  journal: "Int J Infect Dis"
+  citation: "2025 Dec 17;163:108312"
+  role: 공동1저자
+  url: "https://doi.org/10.1016/j.ijid.2025.108312"
+
 - year: 2025
   scope: 국제
   authors: Kim YC, Chae J, Shin J, Kim Y, Lee E, Kim DS
@@ -19,7 +92,7 @@
   journal: BMC Infect Dis
   citation: 2025 Nov 20;25(1):1627
   role: 교신저자
-  url: ""
+  url: "https://doi.org/10.1186/s12879-025-12060-5"
 
 - year: 2025
   scope: 국제
@@ -37,7 +110,7 @@
   journal: Sci Rep
   citation: 2025 Jul 1;15(1):21691
   role: 교신저자
-  url: ""
+  url: "https://doi.org/10.1038/s41598-025-03951-3"
 
 - year: 2025
   scope: 국제
@@ -64,6 +137,24 @@
   journal: Geriatr Gerontol Int
   citation: 2025 Feb;25(2):182-189
   role: 교신저자
+  url: ""
+
+- year: 2025
+  scope: 국내
+  authors: "허예린, 송인명, 김동숙"
+  title: "청력기능이 저하된 노인에게서 보청기 사용과 인지기능의 연관성"
+  journal: "보건경제와 정책연구"
+  citation: "2025;31(4):27-47"
+  role: 교신저자
+  url: ""
+
+- year: 2025
+  scope: 국내
+  authors: "김동숙, 유수연"
+  title: "의약품 유통 구조의 문제점과 개선방안: 그룹 인터뷰 연구"
+  journal: "KFDC규제과학회지"
+  citation: "2025;20(2):131-139"
+  role: 1저자
   url: ""
 
 - year: 2025

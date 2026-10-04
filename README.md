@@ -12,7 +12,8 @@
 | `data/news.yaml` | 소식 (언론·수상·공지) |
 | `data/professor.yaml` | 지도교수 정보 |
 | `data/site.yaml` | 연구실 이름·주소·연락처·연구 분야 |
-| `public/photos/` | 사진 파일 |
+| `public/photos/` | 구성원·교수 사진 |
+| `public/logo.png` | 연구실 로고 (상단·탭 아이콘) |
 
 ---
 
@@ -40,14 +41,14 @@
   name: 홍길동
   status: 재학              # 재학 / 졸업
   course: 석사과정
-  note: ""                  # 예: 학·석사 연계생
   email: hong@example.com
   email_public: false       # true 로 해야 사이트에 이메일이 보임
   photo: ""                 # 사진을 올렸다면 파일 이름 (예: hong.jpg)
 ```
 
 ### 졸업 처리
-해당 사람의 `status: 재학` 을 `status: 졸업` 으로 바꾸고, `course`, `graduated`(졸업 연월), `current`(현 소속)를 적습니다. 졸업생 목록으로 자동 이동합니다.
+해당 사람의 `status: 재학` 을 `status: 졸업` 으로, `course` 를 학위명(예: 보건학 석사)으로 바꿉니다. 졸업생 목록으로 자동 이동합니다.
+(`note`, `graduated`, `current` 칸은 기록용이며 현재 사이트에는 표시되지 않습니다.)
 
 ### 사진 올리기
 1. `public/photos` 폴더로 이동 → **Add file → Upload files** 로 사진을 올립니다. (파일 이름은 영문 권장: `hong.jpg`)
@@ -68,6 +69,7 @@
 사이트에서는 연도별로 자동 정렬되고, 교수님 이름(김동숙 / Kim DS)은 자동으로 굵게 표시됩니다.
 
 ### 연구과제 추가 — `data/projects.yaml`
+**연구실(교수님) 과제로 확인된 것만** 올립니다.
 ```yaml
 - title: 과제명
   start: 2026.03            # 2026, 2026.03, 2026.03.15 모두 가능

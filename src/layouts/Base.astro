@@ -32,6 +32,7 @@ const nav = [
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={desc} />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content={new URL(u('/logo.png'), Astro.site).href} />
     <link rel="icon" href={u('/favicon.png')} type="image/png" />
     <link rel="apple-touch-icon" href={u('/logo.png')} />
   </head>
