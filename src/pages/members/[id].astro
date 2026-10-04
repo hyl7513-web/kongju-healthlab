@@ -26,8 +26,7 @@ const timeline = [
   <section class="prof">
     <div class="photo">{m.photo ? <img src={u(`/photos/${m.photo}`)} alt="" /> : <Icon name="person" size={40} color="#8A919C" />}</div>
     <div class="prof-body">
-      <div class="prof-name"><span><span class="n">{m.name}</span><span class="p">{m.course}{m.note && ` (${m.note})`} · {m.status}</span></span></div>
-      {m.current && <span>{m.current}</span>}
+      <div class="prof-name"><span><span class="n">{m.name}</span><span class="p">{m.course} · {m.status}</span></span></div>
       {m.email_public && m.email && <span class="small">{m.email}</span>}
     </div>
   </section>
