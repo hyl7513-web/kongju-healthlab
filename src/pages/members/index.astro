@@ -39,10 +39,7 @@ const groups = [
               <div class="photo">{m.photo ? <img src={u(`/photos/${m.photo}`)} alt="" /> : <Icon name="person" size={32} color="#8A919C" />}</div>
               <div>
                 <div class="nm">{m.name}</div>
-                <div class="c">{m.course}{m.note && ` (${m.note})`}</div>
-                {m.status === '졸업' && (m.graduated || m.current) && (
-                  <div class="s">{[m.graduated && `${m.graduated} 졸업`, m.current].filter(Boolean).join(' · ')}</div>
-                )}
+                <div class="c">{m.course}</div>
                 {m.email_public && m.email && <div class="s">{m.email}</div>}
                 {m.cv && <a class="cvlink" href={u(`/members/${m.id}`)}>이력 보기 →</a>}
               </div>
