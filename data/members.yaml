@@ -37,6 +37,24 @@
   email_public: true
   photo: lee-yeongyeong.jpg
 
+- id: kim-minji
+  name: 김민지
+  status: 재학
+  course: 학부연구생
+  note: ""
+  email: meanzy1210@naver.com
+  email_public: true
+  photo: kim-minji.jpg
+
+- id: park-ieun
+  name: 박이은
+  status: 재학
+  course: 학부연구생
+  note: ""
+  email: park36771@naver.com
+  email_public: true
+  photo: park-ieun.jpg
+
 - id: park-jeongyeon
   name: 박정연
   status: 졸업
