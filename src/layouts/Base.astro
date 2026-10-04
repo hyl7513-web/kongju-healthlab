@@ -1,0 +1,110 @@
+---
+import '../styles/global.css';
+import Icon from '../components/Icon.astro';
+import { loadAll } from '../lib/data.mjs';
+import { u } from '../lib/url.mjs';
+
+const { title, description, current } = Astro.props;
+const { site } = loadAll();
+const pageTitle = title ? `${title} | ${site.name_ko}` : `${site.university} ${site.name_ko}`;
+const desc = description ?? site.intro;
+
+const nav = [
+  { key: 'about', label: '연구실 소개', href: u('/about') },
+  { key: 'projects', label: '연구과제', href: u('/projects') },
+  { key: 'publications', label: '연구성과', href: u('/publications') },
+  { key: 'members', label: '구성원', href: u('/members') },
+  { key: 'news', label: '소식', href: u('/news') },
+];
+---
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={desc} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href={u('/favicon.svg')} type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" />
+  </head>
+  <body>
+    <a class="skip" href="#content">본문 바로가기</a>
+    <div class="util">
+      <div class="wrap">
+        {site.links.map((l, i) => (
+          <>
+            {i > 0 && <span class="sep">|</span>}
+            <a href={l.url} target="_blank" rel="noopener">{l.label}</a>
+          </>
+        ))}
+        <span class="sep">|</span>
+        <a href={u('/about#location')}>오시는 길</a>
+      </div>
+    </div>
+    <header class="header">
+      <div class="wrap">
+        <a class="brand" href={u('/')}>
+          <Icon name="logo" size={38} color="#152B4E" />
+          <span class="brand-text">
+            <span class="brand-ko">{site.name_ko}</span>
+            <span class="brand-en">{site.name_en} · KNU</span>
+          </span>
+        </a>
+        <button class="menu-btn" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="gnb">
+          <Icon name="menu" size={20} color="#152B4E" />
+        </button>
+        <nav class="gnb" id="gnb" aria-label="주 메뉴">
+          {nav.map((n) => (
+            <a href={n.href} aria-current={current === n.key ? 'page' : undefined}>{n.label}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <slot name="top" />
+
+    <main class="wrap" id="content">
+      <slot />
+    </main>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div class="col">
+          <span class="name">{site.university} {site.name_ko}</span>
+          {site.contact.address && <span>{site.contact.address}</span>}
+          <span>
+            {[site.contact.tel && `Tel ${site.contact.tel}`, site.contact.fax && `Fax ${site.contact.fax}`, site.contact.email && `E-mail ${site.contact.email}`]
+              .filter(Boolean)
+              .join(' · ')}
+          </span>
+          <span class="copy">© {site.name_en}, Kongju National University</span>
+        </div>
+        <div class="links">
+          <div class="col">
+            <span class="h">바로가기</span>
+            {site.links.map((l) => <a href={l.url} target="_blank" rel="noopener">{l.label}</a>)}
+          </div>
+          <div class="col">
+            <span class="h">사이트맵</span>
+            {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const btn = document.querySelector('.menu-btn');
+      const gnb = document.getElementById('gnb');
+      btn?.addEventListener('click', () => {
+        const open = gnb.classList.toggle('open');
+        btn.setAttribute('aria-expanded', String(open));
+        btn.setAttribute('aria-label', open ? '메뉴 닫기' : '메뉴 열기');
+      });
+    </script>
+  </body>
+</html>

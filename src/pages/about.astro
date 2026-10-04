@@ -1,0 +1,72 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Icon from '../components/Icon.astro';
+import { loadAll } from '../lib/data.mjs';
+import { u } from '../lib/url.mjs';
+
+const { site, professor } = loadAll();
+// 지도는 주소에서 '(신관동) …호' 부분을 빼고 검색
+const mapQuery = encodeURIComponent(site.contact.address.replace(/\s*\(.*$/, '') || site.university);
+---
+<Base title="연구실 소개" current="about">
+  <PageHead title="연구실 소개" slot="top" />
+
+  <section>
+    <h2 class="section-title">인사말</h2>
+    <p style="margin:0;font-size:16px;line-height:1.8;max-width:860px">{site.intro}</p>
+  </section>
+
+  {site.research_areas.length > 0 && (
+    <section>
+      <h2 class="section-title">연구 분야</h2>
+      <div class="areas">
+        {site.research_areas.map((a) => (
+          <div class="area">
+            <Icon name={a.icon} size={28} color="#1B4F8C" />
+            <div><b>{a.title}</b><span>{a.keywords}</span></div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <section id="professor">
+    <h2 class="section-title">지도교수</h2>
+    <div class="prof" style="margin-bottom:24px">
+      <div class="photo">{professor.photo ? <img src={u(`/photos/${professor.photo}`)} alt={`${professor.name} 교수`} /> : <Icon name="person" size={40} color="#8A919C" />}</div>
+      <div class="prof-body">
+        <div class="prof-name"><span><span class="n">{professor.name}</span><span class="p">{professor.position}{professor.name_en && ` · ${professor.name_en}`}</span></span></div>
+        <span class="small">
+          {[professor.email && `E-mail ${professor.email}`, professor.tel && `Tel ${professor.tel}`, professor.fax && `Fax ${professor.fax}`].filter(Boolean).join(' · ')}
+        </span>
+      </div>
+    </div>
+    <dl class="info">
+      {[['학력', professor.education], ['경력', professor.career]].map(([label, items]) => (
+        items.length > 0 && (
+          <>
+            <dt>{label}</dt>
+            <dd><ul class="tl">{items.map((e) => <li><span class="y">{e.period}</span><span>{e.text}</span></li>)}</ul></dd>
+          </>
+        )
+      ))}
+      {professor.awards.length > 0 && (
+        <>
+          <dt>수상</dt>
+          <dd><ul class="tl">{professor.awards.map((a) => <li><span class="y">{a.year}</span><span>{a.text}</span></li>)}</ul></dd>
+        </>
+      )}
+    </dl>
+  </section>
+
+  <section id="location">
+    <h2 class="section-title">오시는 길</h2>
+    <dl class="info" style="margin-bottom:16px">
+      <dt>주소</dt><dd>{site.contact.address}</dd>
+      <dt>연락처</dt>
+      <dd>{[site.contact.tel && `Tel ${site.contact.tel}`, site.contact.fax && `Fax ${site.contact.fax}`, site.contact.email && `E-mail ${site.contact.email}`].filter(Boolean).join(' · ')}</dd>
+    </dl>
+    <iframe class="map" title="연구실 위치 지도" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src={`https://maps.google.com/maps?q=${mapQuery}&z=16&output=embed`}></iframe>
+  </section>
+</Base>

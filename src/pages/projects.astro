@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { loadAll, projectStatus, projectPeriod, sortByDateDesc, parseDate } from '../lib/data.mjs';
+
+const { projects } = loadAll();
+const today = new Date();
+const items = sortByDateDesc(projects, 'start').map((p) => ({ ...p, status: projectStatus(p, today), year: parseDate(p.start).y }));
+const ongoing = items.filter((p) => p.status === '진행');
+const years = [...new Set(items.map((p) => p.year))];
+const isLead = (r) => /책임/.test(r);
+---
+<Base title="연구과제" current="projects">
+  <PageHead title="연구과제" slot="top" />
+
+  <section>
+    <div class="board-head"><h2>진행 중인 과제 <span class="small">({ongoing.length}건)</span></h2></div>
+    {ongoing.length ? (
+      <ul class="list">
+        {ongoing.map((p) => (
+          <li class="row">
+            <span class="badge on">진행</span>
+            <span>
+              <span class="t" style="display:block">{p.title}</span>
+              <span class="m">{[projectPeriod(p), p.funder, p.role].filter(Boolean).join(' · ')}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+    ) : <div class="empty">진행 중인 과제가 없습니다.</div>}
+  </section>
+
+  <section>
+    <div class="board-head"><h2>전체 과제 <span class="small">({items.length}건, 시작 연도별)</span></h2></div>
+    {years.map((y) => (
+      <>
+        <h3 class="year-head">{y}</h3>
+        <ul class="list">
+          {items.filter((p) => p.year === y).map((p) => (
+            <li class="row">
+              <span class={`badge ${p.status === '진행' ? 'on' : ''}`}>{p.status}</span>
+              <span style="flex-grow:1">
+                <span class="t" style="display:block">{p.title}</span>
+                <span class="m">{[projectPeriod(p), p.funder].filter(Boolean).join(' · ')}</span>
+              </span>
+              {p.role && <span class={`badge ${isLead(p.role) ? 'solid' : ''}`}>{p.role}</span>}
+            </li>
+          ))}
+        </ul>
+      </>
+    ))}
+  </section>
+</Base>

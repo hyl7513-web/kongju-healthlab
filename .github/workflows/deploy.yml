@@ -1,0 +1,48 @@
+name: 사이트 배포
+
+on:
+  # main 브랜치에 수정이 올라오면 자동 배포
+  push:
+    branches: [main]
+  # 매주 월요일 오전 6시(한국시간)에 다시 빌드 → 과제 '진행/종료' 표시가 날짜에 맞게 갱신됨
+  schedule:
+    - cron: '0 21 * * 0'
+  # Actions 탭에서 수동 실행 가능
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      # 데이터 검사 → 오류가 있으면 여기서 멈추고 기존 사이트가 그대로 유지됨
+      - run: npm run build
+        env:
+          TZ: Asia/Seoul
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

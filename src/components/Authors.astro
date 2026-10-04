@@ -1,0 +1,18 @@
+---
+// 저자 목록에서 지도교수 이름을 굵게 표시
+import { loadAll } from '../lib/data.mjs';
+const { authors } = Astro.props;
+const { professor } = loadAll();
+const highlight = new Set([professor.name]);
+if (professor.name_en) {
+  // "Dong-Sook Kim" → "Kim DS"
+  const parts = professor.name_en.trim().split(/\s+/);
+  const last = parts.pop();
+  const initials = parts.join('').split('-').map((s) => s[0]).join('').toUpperCase();
+  highlight.add(`${last} ${initials}`);
+}
+const names = authors.split(/\s*,\s*/);
+---
+{names.map((n, i) => (
+  <>{i > 0 && ', '}{highlight.has(n) ? <strong>{n}</strong> : n}</>
+))}

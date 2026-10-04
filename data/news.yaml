@@ -1,0 +1,111 @@
+# ───────────────────────────────────────────────
+# 소식 (언론 · 수상 · 공지)
+#
+#   date     : 2025.12.10 처럼 (일자를 모르면 2025 또는 2025.12)
+#   category : 언론 / 수상 / 공지
+#   title    : 제목
+#   source   : 매체명 (언론일 때. 없으면 "")
+#   url      : 원문 링크 (없으면 "")
+#   body     : 공지 본문 등 추가 설명 (없으면 "")
+# ───────────────────────────────────────────────
+
+# ── 언론 ──
+- date: 2025.12.10
+  category: 언론
+  title: "[기고] 닥터나우 의약품 도매업 진출, 왜 규제가 필요한가"
+  source: 경향신문
+  url: https://www.khan.co.kr/article/202512092007005
+  body: ""
+
+- date: 2025.02.14
+  category: 언론
+  title: 제약업계, 너무 싼 국산 약값 블록버스터 신약 개발 기회 좁혀
+  source: ZDNet Korea
+  url: https://zdnet.co.kr/view/?no=20250214102027
+  body: ""
+
+- date: 2024.09.27
+  category: 언론
+  title: 품절약 문제 어떻게 해결할까? "다양한 정책적 시도 나와야"
+  source: 히트뉴스
+  url: http://www.hitnews.co.kr/news/articleView.html?idxno=57798
+  body: ""
+
+- date: 2024.09.27
+  category: 언론
+  title: "\"의약품 수급 안정화? 약가 인하 방지부터\""
+  source: 청년의사
+  url: https://www.docdocdoc.co.kr/news/articleView.html?idxno=3021348
+  body: ""
+
+- date: 2024.06.01
+  category: 언론
+  title: INN 제네릭 꽃피우자는 학계, 씨앗이 있으면 물도 줘야한다
+  source: 히트뉴스
+  url: http://www.hitnews.co.kr/news/articleView.html?idxno=55068
+  body: ""
+
+- date: 2024.04.15
+  category: 언론
+  title: 수급불안정 약제, 대체 또는 변경조제 불가피한 측면 있어
+  source: The Voice
+  url: https://www.newsthevoice.com/news/articleView.html?idxno=37668
+  body: ""
+
+- date: 2024.04.05
+  category: 언론
+  title: 요양병원 고령환자 항생제 사용량 최다
+  source: 메디칼트리뷴
+  url: https://www.medical-tribune.co.kr/news/articleView.html?idxno=204810
+  body: ""
+
+- date: 2023.09.12
+  category: 언론
+  title: 혁신약가 우대, 협의체 재개…제네릭 인하는 숨고르기
+  source: 데일리팜
+  url: https://www.dailypharm.com/Users/News/NewsView.html?ID=303982
+  body: ""
+
+- date: 2023.07.13
+  category: 언론
+  title: 계단식 약가제 기준 20→10개 되면 제네릭 줄어들까?
+  source: 데일리팜
+  url: https://www.dailypharm.com/Users/News/NewsView.html?ID=302189
+  body: ""
+
+# ── 수상 ──
+- date: 2025.11.12
+  category: 수상
+  # 기존 사이트 표기는 "대한약물위해관리학회"였습니다. 정식 학회명(대한약물역학위해관리학회인지) 확인 후 고쳐 주세요.
+  title: 보건행정학과 석사 조민솔, 대한약물위해관리학회 추계학술대회 장려상 수상
+  source: 국립공주대학교
+  url: https://www.kongju.ac.kr/KNU/16683/subview.do?enc=Zm5jdDF8QEB8JTJGYmJzJTJGS05VJTJGMjExMyUyRjQxNjM5NiUyRmFydGNsVmlldy5kbyUzRg%3D%3D
+  body: ""
+
+- date: 2025
+  category: 수상
+  title: 김동숙 교수, 대한감염학회 학술논문 우수상
+  source: ""
+  url: ""
+  body: ""
+
+- date: 2024.05.30
+  category: 수상
+  title: 보건행정학과 석사 곽민주, 대한약물역학위해관리학회 춘계학술대회 장려상 수상
+  source: Veritas-a
+  url: https://www.veritas-a.com/news/articleView.html?idxno=506867
+  body: ""
+
+- date: 2022
+  category: 수상
+  title: 김동숙 교수, 의료질향상학회 학술논문 우수상
+  source: ""
+  url: ""
+  body: ""
+
+- date: 2020
+  category: 수상
+  title: 김동숙 교수, 건강보험심사평가원 2020년 연구대상
+  source: ""
+  url: ""
+  body: ""

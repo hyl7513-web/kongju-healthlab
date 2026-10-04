@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Authors from '../components/Authors.astro';
+import { loadAll } from '../lib/data.mjs';
+
+const { papers } = loadAll();
+const years = [...new Set(papers.map((p) => p.year))].sort((a, b) => +b - +a);
+const counts = { 국제: papers.filter((p) => p.scope === '국제').length, 국내: papers.filter((p) => p.scope === '국내').length };
+---
+<Base title="연구성과" current="publications">
+  <PageHead title="연구성과 · 게재 논문" slot="top" />
+
+  <section>
+    <div class="filters" id="filters">
+      <div class="g" data-key="year">
+        <span>연도</span>
+        <button class="chip" type="button" data-v="all" aria-pressed="true">전체</button>
+        {years.map((y) => <button class="chip" type="button" data-v={y} aria-pressed="false">{y}</button>)}
+      </div>
+      <div class="g" data-key="scope">
+        <span>구분</span>
+        <button class="chip" type="button" data-v="all" aria-pressed="true">전체</button>
+        <button class="chip" type="button" data-v="국제" aria-pressed="false">국제 ({counts['국제']})</button>
+        <button class="chip" type="button" data-v="국내" aria-pressed="false">국내 ({counts['국내']})</button>
+      </div>
+      <span class="result-count" id="count" aria-live="polite">총 {papers.length}편</span>
+    </div>
+
+    {years.map((y) => (
+      <div class="year-block" data-year={y}>
+        <h3 class="year-head">{y}</h3>
+        <ol class="list pub">
+          {papers.filter((p) => p.year === y).map((p) => (
+            <li data-scope={p.scope}>
+              {p.url ? <a class="t" href={p.url} target="_blank" rel="noopener">{p.title}</a> : <span class="t">{p.title}</span>}
+              <span class="m" style="color:#5A6270"><Authors authors={p.authors} /></span>
+              <span class="m">
+                <em>{p.journal}</em>{p.citation && `. ${p.citation}`}
+                {' '}<span class="badge" style="margin-left:6px;padding:0 6px;font-weight:500">{p.scope}</span>
+                {p.role && <span class="badge solid" style="margin-left:4px;padding:0 6px;font-weight:500">{p.role}</span>}
+              </span>
+            </li>
+          ))}
+        </ol>
+      </div>
+    ))}
+  </section>
+</Base>
+
+<script>
+  const state = { year: 'all', scope: 'all' };
+  const blocks = document.querySelectorAll('.year-block');
+  const count = document.getElementById('count');
+  function apply() {
+    let n = 0;
+    blocks.forEach((b) => {
+      const yOk = state.year === 'all' || b.dataset.year === state.year;
+      let shown = 0;
+      b.querySelectorAll('li').forEach((li) => {
+        const ok = yOk && (state.scope === 'all' || li.dataset.scope === state.scope);
+        li.hidden = !ok;
+        if (ok) shown++;
+      });
+      b.hidden = shown === 0;
+      n += shown;
+    });
+    count.textContent = `총 ${n}편`;
+  }
+  document.querySelectorAll('#filters .g').forEach((g) => {
+    g.addEventListener('click', (e) => {
+      const btn = e.target.closest('.chip');
+      if (!btn) return;
+      g.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(c === btn)));
+      state[g.dataset.key] = btn.dataset.v;
+      apply();
+    });
+  });
+</script>

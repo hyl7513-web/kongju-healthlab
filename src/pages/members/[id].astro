@@ -1,0 +1,49 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Icon from '../../components/Icon.astro';
+import { loadAll } from '../../lib/data.mjs';
+import { u } from '../../lib/url.mjs';
+
+export function getStaticPaths() {
+  return loadAll()
+    .members.filter((m) => m.cv)
+    .map((m) => ({ params: { id: m.id }, props: { m } }));
+}
+const { m } = Astro.props;
+const cv = m.cv;
+const timeline = [
+  ['학력', cv.education],
+  ['경력', cv.work],
+  ['참여 과제', cv.projects],
+  ['논문', cv.publications],
+  ['수상', cv.awards],
+];
+---
+<Base title={m.name} current="members">
+  <PageHead title={m.name} slot="top" />
+
+  <section class="prof">
+    <div class="photo">{m.photo ? <img src={u(`/photos/${m.photo}`)} alt="" /> : <Icon name="person" size={40} color="#8A919C" />}</div>
+    <div class="prof-body">
+      <div class="prof-name"><span><span class="n">{m.name}</span><span class="p">{m.course}{m.note && ` (${m.note})`} · {m.status}</span></span></div>
+      {m.current && <span>{m.current}</span>}
+      {m.email_public && m.email && <span class="small">{m.email}</span>}
+    </div>
+  </section>
+
+  <section>
+    <dl class="info">
+      {cv.interests.length > 0 && (<><dt>연구 관심 분야</dt><dd>{cv.interests.join(' · ')}</dd></>)}
+      {timeline.map(([label, items]) => items.length > 0 && (
+        <>
+          <dt>{label}</dt>
+          <dd><ul class="tl">{items.map((e) => <li><span class="y">{e.period}</span><span>{e.text}</span></li>)}</ul></dd>
+        </>
+      ))}
+      {cv.skills.length > 0 && (<><dt>기술 · 자격</dt><dd>{cv.skills.join(' · ')}</dd></>)}
+    </dl>
+  </section>
+
+  <a class="small" href={u('/members')}>← 구성원 목록으로</a>
+</Base>

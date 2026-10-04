@@ -1,0 +1,267 @@
+# ───────────────────────────────────────────────
+# 게재 논문 (위쪽이 최신이 되도록 추가하면 보기 편합니다. 사이트에서는 연도순으로 자동 정렬)
+#
+#   year     : 게재 연도 (숫자)
+#   scope    : 국제 / 국내
+#   authors  : 저자 목록 그대로
+#   title    : 논문 제목
+#   journal  : 학술지명
+#   citation : 권(호):쪽 등 서지 정보
+#   role     : 교수님 역할 (교신저자, 공동교신저자, 1저자, 공동1저자 등. 없으면 "")
+#   url      : DOI 또는 논문 링크 (없으면 "")
+# ───────────────────────────────────────────────
+
+# ── 2025 ──
+- year: 2025
+  scope: 국제
+  authors: Kim YC, Chae J, Shin J, Kim Y, Lee E, Kim DS
+  title: "Trends in antibiotic use in long-term care hospitals during the COVID-19 pandemic: a nationwide cohort study during 2020 and 2023"
+  journal: BMC Infect Dis
+  citation: 2025 Nov 20;25(1):1627
+  role: 교신저자
+  url: ""
+
+- year: 2025
+  scope: 국제
+  authors: Yu SY, Kim DS, Kim H, Jo J, Kim H, Han E
+  title: Assessment of Financial Impact of Expanding the Scope of Drug Usage in South Korea
+  journal: Int J Health Policy Manag
+  citation: 2025;14:8812
+  role: ""
+  url: ""
+
+- year: 2025
+  scope: 국제
+  authors: Chae K, Kim DS
+  title: Determinants of medical costs in patients with and without fractures using Korean Senior Cohort Study
+  journal: Sci Rep
+  citation: 2025 Jul 1;15(1):21691
+  role: 교신저자
+  url: ""
+
+- year: 2025
+  scope: 국제
+  authors: Park C, Kim DS, Song I
+  title: Comparison of generic drug prices in Korea and eight high-income countries across four therapeutic classes
+  journal: PLoS One
+  citation: 2025 Mar 11;20(3):e0319674
+  role: 공동1저자
+  url: ""
+
+- year: 2025
+  scope: 국제
+  authors: Yun J, Chang Y, Jo M, Heo Y, Kim DS
+  title: National Expenditures on Anticancer and Immunomodulating Agents During 2013-2022 in Korea
+  journal: J Korean Med Sci
+  citation: 2025 Feb 10;40(5):e16
+  role: 교신저자
+  url: ""
+
+- year: 2025
+  scope: 국제
+  authors: Song I, Kim DS
+  title: "Cognitive impairment and domain-specific life satisfaction among older adults: Findings from the Korean National Longitudinal Study on Aging"
+  journal: Geriatr Gerontol Int
+  citation: 2025 Feb;25(2):182-189
+  role: 교신저자
+  url: ""
+
+- year: 2025
+  scope: 국내
+  authors: 송인명, 신채은, 김경훈, 이혜연, 류승은, 최미영, 김동숙
+  title: 주요 외국의 의약품 처방 및 조제기간 관련 제도 및 시사점
+  journal: 약학회지
+  citation: 2025;69(5):421-430
+  role: 공동교신저자
+  url: ""
+
+- year: 2025
+  scope: 국내
+  authors: 박정연, 김경훈, 김동숙
+  title: 생애주기에 따른 건강정보이해능력과 주관적 건강상태의 관련성
+  journal: 보건경제와 정책연구
+  citation: 2025;31(3):51-74
+  role: 공동교신저자
+  url: ""
+
+- year: 2025
+  scope: 국내
+  authors: 박정연, 김동숙
+  title: 만성질환자의 상용치료원 유무가 건강정보이해능력에 미치는 영향
+  journal: 대한보건연구
+  citation: 2025;51(3):105-120
+  role: 교신저자
+  url: ""
+
+- year: 2025
+  scope: 국내
+  authors: 이선영, 채정미, 윤상헌, 김동숙
+  title: 노인의 다약제 정의 및 다약제 사용 감소를 위한 정책 검토
+  journal: 한국임상약학회지
+  citation: 2025;35(3):131-139
+  role: 교신저자
+  url: ""
+
+- year: 2025
+  scope: 국내
+  authors: 송인명, 김동숙, 박지은, 김수진, 정연, 박실비아, 강은정, 양보람, 최상은
+  title: 미국과 유럽의 AI 기반 의료기기 소프트웨어 규제제도 고찰과 국내 허가현황 분석
+  journal: 약학회지
+  citation: 2025;69(3):201-211
+  role: ""
+  url: ""
+
+# ── 2024 ──
+- year: 2024
+  scope: 국제
+  authors: Chae J, Choi YM, Kim YC, Kim DS
+  title: Quinolone Use during the First Trimester of Pregnancy and the Risk of Atopic Dermatitis, Asthma, and Allergies of Offspring during 2011 to 2020
+  journal: Infect Chemother
+  citation: 2024 Dec;56(4):461-472
+  role: 교신저자
+  url: ""
+
+- year: 2024
+  scope: 국제
+  authors: Song I, Ryu S, Kim DS
+  title: Relationship between obesity, body composition, and pulmonary function among Korean adults aged 40 years and older
+  journal: Sci Rep
+  citation: 2024 Aug 27;14(1):19798
+  role: 교신저자
+  url: ""
+
+- year: 2024
+  scope: 국제
+  authors: Chae J, Cho HJ, Yoon SH, Kim DS
+  title: "The association between continuous polypharmacy and hospitalization, emergency department visits, and death in older adults: a nationwide large cohort study"
+  journal: Front Pharmacol
+  citation: 2024;15:1382990
+  role: 교신저자
+  url: ""
+
+- year: 2024
+  scope: 국제
+  authors: Shin J, Park JY, Chae J, Kim HS, Moon SM, Heo E, Park SY, Seo DM, Chun HJ, Kim YC, Lee MJ, Huh K, Park HJ, Yun IJ, Jeong SJ, Choi JY, Kim DS, Kim B, KONAS Working Committee
+  title: Difference in Baseline Antimicrobial Prescription Patterns of Hospitals According to Participation in the National Antimicrobial Monitoring and Feedback System in Korea
+  journal: J Korean Med Sci
+  citation: 2024 Jul 29;39(29):e216
+  role: 공동교신저자
+  url: ""
+
+- year: 2024
+  scope: 국제
+  authors: Chae J, Kim DS, Shin J, Kim YC, Ji SY, Kim Y, Ryu M
+  title: "Ten-year trends of antibiotics used for patients with pneumonia at long-term care hospitals in the Republic of Korea: An analysis based on national health insurance claims data"
+  journal: Heliyon
+  citation: 2024 Jun 17;10(12):e33047
+  role: 공동1저자
+  url: ""
+
+- year: 2024
+  scope: 국내
+  authors: 김동숙, 최상은, 임은아, 박은자, 김상현, 김선미, 이소은, 임세환, 박정민, 송인명
+  title: "해외 주요지역의 의약품 공급망 투명성 정책: 미국, 유럽, 튀르기예 사례 분석"
+  journal: 보건의료기술평가
+  citation: 2024;12(2):82-91
+  role: 1저자
+  url: ""
+
+- year: 2024
+  scope: 국내
+  authors: 정채림, 유수연, 노가야, 김동숙, 한은아
+  title: "외국의 약제 사용범위 확대 정책의 현황: 호주, 영국 및 일본"
+  journal: 약학회지
+  citation: 2024;68(5):344-351
+  role: 공동교신저자
+  url: ""
+
+- year: 2024
+  scope: 국내
+  authors: 윤숙현, 홍성애, 김동숙
+  title: COVID-19가 청소년 비만에 영향을 미치는 요인 - 청소년건강행태조사(2021년-2022년)
+  journal: 대한보건연구
+  citation: 2024;50(3):13-25
+  role: 공동교신저자
+  url: ""
+
+- year: 2024
+  scope: 국내
+  authors: 김동숙, 정상준, 박은자, 최상은, 임은아, 김상현, 송인명
+  title: 주요국의 수급불안정 의약품 관리제도에 관한 고찰과 한국에의 시사점
+  journal: 보건행정학회지
+  citation: 2024;24(2):106-119
+  role: 교신저자
+  url: ""
+
+- year: 2024
+  scope: 국내
+  authors: 송인명, 김동숙
+  title: "주요국 디지털 치료기기의 보건의료기술평가 현황과 시사점: 독일, 영국, 미국 발전과정을 중심으로"
+  journal: J Health Tech Assess
+  citation: 2024;12(1):9-16
+  role: 교신저자
+  url: ""
+
+# ── 2023 ──
+- year: 2023
+  scope: 국제
+  authors: Oh J, Kim MJ, Hur S, Oh J, Kim DS
+  title: Institutionalizing Health Technology Assessment and Priority Setting in South Korea's Universal Health Coverage Journey
+  journal: Health Syst Reform
+  citation: 2023;9(3):2338308
+  role: ""
+  url: ""
+
+- year: 2023
+  scope: 국제
+  authors: Chae J, Choi JY, Kim B, Kim DS
+  title: Antibiotic Use during Pregnancy in South Korea Using 2011-2020 National Health Insurance Claims Data
+  journal: Antibiotics (Basel)
+  citation: 2023 Jul 28;12(8):1242
+  role: 공동교신저자
+  url: ""
+
+- year: 2023
+  scope: 국제
+  authors: Kim Y, Chae J, Shin S, Jo G, Shin J, Kim B, Kim DS, Lee JY
+  title: Trends in National Pharmaceutical Expenditure in Korea during 2011 - 2020
+  journal: Infect Chemother
+  citation: 2023;55(2):237-246
+  role: 공동교신저자
+  url: ""
+
+- year: 2023
+  scope: 국제
+  authors: Han S, Kim DY, Lim HY, Yoon JH, Ryoo BY, Kim Y, Kim K, Kim BY, Yi SY, Kim DS, Cho DY, Yu J, Kim S, Park JW
+  title: "Sorafenib for 9,923 Patients with Hepatocellular Carcinoma: An Analysis from National Health Insurance Claim Data in South Korea"
+  journal: Gut Liver
+  citation: 2023 Jun 19
+  role: ""
+  url: ""
+
+- year: 2023
+  scope: 국제
+  authors: Kim B, Hwang H, Chae J, Kim YS, Kim DS
+  title: Analysis of Changes in Antibiotic Use Patterns in Korean Hospitals during the COVID-19 Pandemic
+  journal: Antibiotics (Basel)
+  citation: 2023;12(2):198
+  role: 교신저자
+  url: ""
+
+- year: 2023
+  scope: 국내
+  authors: 김동숙, 송인명
+  title: "미국의 의료기기 시판 후 이상사례 감시체계 고찰과 시사점: 고유기기식별자를 이용한 실제임상자료 수집을 중심으로"
+  journal: HIRA RESEARCH
+  citation: 2023;3(1):22-36
+  role: 1저자
+  url: ""
+
+- year: 2023
+  scope: 국내
+  authors: 김예슬, 채정미, 신지혜, 김유정, 조가영, 지승연, 김동숙
+  title: 항생제 사례로 살펴본 건강보험청구자료 분석 시 고려사항
+  journal: HIRA RESEARCH
+  citation: 2023;3(2):213-221
+  role: 교신저자
+  url: ""

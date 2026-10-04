@@ -1,0 +1,89 @@
+# ───────────────────────────────────────────────
+# 구성원
+#
+# 새 구성원 추가: 아래 블록 하나를 복사해 붙여넣고 내용을 바꾸면 됩니다.
+#   id      : 영문 소문자·숫자·하이픈만 (주소에 쓰임, 다른 사람과 겹치면 안 됨)
+#   status  : 재학 / 졸업  ← 졸업하면 이 값만 바꾸면 졸업생 목록으로 이동
+#   course  : 박사과정 / 석사과정 / 학부연구생 / 석사 / 박사 등 자유롭게
+#   photo   : public/photos/ 폴더에 올린 파일 이름 (없으면 "")
+#   email_public: true 면 이메일을 사이트에 표시, false 면 숨김
+#   cv      : 개인 이력 페이지가 필요할 때만 작성 (없으면 통째로 생략)
+# ───────────────────────────────────────────────
+
+- id: heo-yerin
+  name: 허예린
+  status: 재학
+  course: 석사과정
+  note: 학·석사 연계생
+  email: ye3762@naver.com
+  email_public: true
+  photo: ""
+
+- id: jeong-chiyeon
+  name: 정치연
+  status: 재학
+  course: 학부연구생
+  note: 학·석사 연계생
+  email: jh164614@gmail.com
+  email_public: true
+  photo: ""
+
+- id: lee-yeongyeong
+  name: 이연경
+  status: 재학
+  course: 학부연구생
+  note: ""
+  email: dldusrud050902@gmail.com
+  email_public: true
+  photo: ""
+
+- id: park-jeongyeon
+  name: 박정연
+  status: 졸업
+  course: 보건학 석사
+  graduated: 2025.02
+  current: 국립암센터 암관리사업본부 암관리정책부
+  email: jyp1021m330@naver.com
+  email_public: true
+  photo: ""
+  cv:
+    education:
+      - period: 2023.09 – 2025.02
+        text: 국립공주대학교 보건행정학과 석사 (학위논문 「생애주기에 따른 건강정보이해능력과 주관적 건강상태의 관련성」)
+      - period: 2019.03 – 2023.08
+        text: 국립공주대학교 보건행정학과 학사
+    interests:
+      - 보건정책
+      - 만성질환 관리
+    work:
+      - period: 2025.09 –
+        text: 국립암센터 암관리사업본부 암관리정책부
+      - period: 2024.07 – 2025.01
+        text: 국립공주대학교 연구조교(RA)
+    projects:
+      - period: 2023.09 – 2023.12
+        text: 의약품 유통 선진화를 위한 유통체계 개선방안 연구 (건강보험심사평가원)
+      - period: 2024.05 – 2024.12
+        text: 세균성 장관감염증 표본감시체계 평가 및 개선 방안 연구 (질병관리청)
+      - period: 2024.04 – 2024.08
+        text: 혁신 바이오항암제 규제 선진화를 위한 기술개발 연구
+    awards:
+      - period: 2023.12
+        text: 우수학술발표상, 국립공주대학교 제3회 보건학 학술대회 NhAVI
+      - period: 2024.12
+        text: 우수학술발표상, 국립공주대학교 제4회 보건학 학술대회 NhAVI
+    skills:
+      - SAS
+      - SPSS
+      - 컴퓨터활용능력 자격증
+      - 사회조사분석사 2급
+
+- id: jo-minsol
+  name: 조민솔
+  status: 졸업
+  course: 보건학 석사
+  graduated: ""
+  current: ""
+  email: eunji020530@gmail.com
+  email_public: true
+  photo: ""

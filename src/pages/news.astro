@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import { loadAll, sortByDateDesc, formatDate } from '../lib/data.mjs';
+
+const { news } = loadAll();
+const cats = ['공지', '수상', '언론'];
+---
+<Base title="소식" current="news">
+  <PageHead title="소식" slot="top" />
+
+  {cats.map((c) => {
+    const items = sortByDateDesc(news.filter((n) => n.category === c), 'date');
+    return (
+      <section id={c}>
+        <div class="board-head"><h2>{c} <span class="small">({items.length}건)</span></h2></div>
+        {items.length ? (
+          <ul class="list">
+            {items.map((n) => (
+              <li>
+                {n.url ? <a class="t" href={n.url} target="_blank" rel="noopener">{n.title}</a> : <span class="t">{n.title}</span>}
+                {n.body && <span style="font-size:14px;color:#3D4450;white-space:pre-line">{n.body}</span>}
+                <span class="m">{[n.source, formatDate(n.date)].filter(Boolean).join(' · ')}</span>
+              </li>
+            ))}
+          </ul>
+        ) : <div class="empty">등록된 {c}이(가) 없습니다.</div>}
+      </section>
+    );
+  })}
+</Base>

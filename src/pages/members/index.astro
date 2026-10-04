@@ -1,0 +1,55 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import Icon from '../../components/Icon.astro';
+import { loadAll } from '../../lib/data.mjs';
+import { u } from '../../lib/url.mjs';
+
+const { members, professor } = loadAll();
+const groups = [
+  { label: '재학 연구원', items: members.filter((m) => m.status === '재학') },
+  { label: '졸업생', items: members.filter((m) => m.status === '졸업') },
+];
+---
+<Base title="구성원" current="members">
+  <PageHead title="구성원" slot="top" />
+
+  <section>
+    <div class="board-head" style="margin-bottom:20px"><h2>지도교수</h2></div>
+    <div class="people">
+      <div class="person">
+        <div class="photo">{professor.photo ? <img src={u(`/photos/${professor.photo}`)} alt="" /> : <Icon name="person" size={32} color="#8A919C" />}</div>
+        <div>
+          <div class="nm">{professor.name}</div>
+          <div class="c">{professor.position}</div>
+          {professor.email && <div class="s">{professor.email}</div>}
+          <a class="cvlink" href={u('/about#professor')}>교수 소개 보기 →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {groups.map((g) => (
+    <section>
+      <div class="board-head" style="margin-bottom:20px"><h2>{g.label} <span class="small">({g.items.length}명)</span></h2></div>
+      {g.items.length ? (
+        <div class="people">
+          {g.items.map((m) => (
+            <div class="person">
+              <div class="photo">{m.photo ? <img src={u(`/photos/${m.photo}`)} alt="" /> : <Icon name="person" size={32} color="#8A919C" />}</div>
+              <div>
+                <div class="nm">{m.name}</div>
+                <div class="c">{m.course}{m.note && ` (${m.note})`}</div>
+                {m.status === '졸업' && (m.graduated || m.current) && (
+                  <div class="s">{[m.graduated && `${m.graduated} 졸업`, m.current].filter(Boolean).join(' · ')}</div>
+                )}
+                {m.email_public && m.email && <div class="s">{m.email}</div>}
+                {m.cv && <a class="cvlink" href={u(`/members/${m.id}`)}>이력 보기 →</a>}
+              </div>
+            </div>
+          ))}
+        </div>
+      ) : <div class="empty">등록된 구성원이 없습니다.</div>}
+    </section>
+  ))}
+</Base>

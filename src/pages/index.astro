@@ -1,0 +1,160 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import Authors from '../components/Authors.astro';
+import { loadAll, projectStatus, projectPeriod, sortByDateDesc, formatDate } from '../lib/data.mjs';
+import { u } from '../lib/url.mjs';
+
+const { site, professor, members, papers, projects, news } = loadAll();
+const today = new Date();
+
+const newsByCat = (c) => sortByDateDesc(news.filter((n) => n.category === c), 'date').slice(0, 5);
+const tabs = [
+  { key: 'media', label: '언론', items: newsByCat('언론') },
+  { key: 'award', label: '수상', items: newsByCat('수상') },
+  { key: 'notice', label: '공지', items: newsByCat('공지') },
+];
+
+// 최신 논문 4편 (파일 순서 유지, 연도 내림차순)
+const recentPapers = [...papers].sort((a, b) => +b.year - +a.year).slice(0, 4);
+
+// 진행 중 과제를 먼저, 그다음 시작일 최신순
+const recentProjects = sortByDateDesc(projects, 'start')
+  .map((p) => ({ ...p, status: projectStatus(p, today) }))
+  .sort((a, b) => (a.status === b.status ? 0 : a.status === '진행' ? -1 : 1))
+  .slice(0, 4);
+
+const current = members.filter((m) => m.status === '재학').length;
+const alumni = members.filter((m) => m.status === '졸업').length;
+---
+<Base>
+  <section class="hero" slot="top">
+    <div class="wrap">
+      <div class="hero-text">
+        <span class="hero-kicker">{site.university} {site.college} {site.department}</span>
+        <h1>{site.name_ko}</h1>
+        <span class="hero-en">{site.name_en}</span>
+        {site.slogan && <span class="hero-slogan">{site.slogan}</span>}
+      </div>
+      <nav class="quick" aria-label="바로가기">
+        <a href={u('/projects')}><Icon name="doc" color="#fff" />연구과제</a>
+        <a href={u('/publications')}><Icon name="book" color="#fff" />게재 논문</a>
+        <a href={u('/members')}><Icon name="people" color="#fff" />구성원</a>
+        <a href={u('/about#location')}><Icon name="pin" color="#fff" />오시는 길</a>
+      </nav>
+    </div>
+  </section>
+
+  <div class="board-grid">
+    <section>
+      <div class="board-head">
+        <div class="tabs" role="tablist" aria-label="소식">
+          {tabs.map((t, i) => (
+            <button class="tab" type="button" role="tab" id={`tab-${t.key}`} aria-controls={`panel-${t.key}`} aria-selected={i === 0 ? 'true' : 'false'}>{t.label}</button>
+          ))}
+        </div>
+        <a class="more" href={u('/news')}>더보기 +</a>
+      </div>
+      {tabs.map((t, i) => (
+        <div role="tabpanel" id={`panel-${t.key}`} aria-labelledby={`tab-${t.key}`} hidden={i !== 0}>
+          {t.items.length ? (
+            <ul class="list">
+              {t.items.map((n) => (
+                <li>
+                  {n.url ? <a class="t" href={n.url} target="_blank" rel="noopener">{n.title}</a> : <span class="t">{n.title}</span>}
+                  <span class="m">{[n.source, formatDate(n.date)].filter(Boolean).join(' · ')}</span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div class="empty">등록된 {t.label} 소식이 없습니다.</div>
+          )}
+        </div>
+      ))}
+    </section>
+
+    <section>
+      <div class="board-head">
+        <h2>최근 게재 논문</h2>
+        <a class="more" href={u('/publications')}>더보기 +</a>
+      </div>
+      <ul class="list">
+        {recentPapers.map((p) => (
+          <li>
+            {p.url ? <a class="t" href={p.url} target="_blank" rel="noopener">{p.title}</a> : <span class="t">{p.title}</span>}
+            <span class="m"><Authors authors={p.authors} /> · <em>{p.journal}</em> {p.year}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section>
+      <div class="board-head">
+        <h2>연구과제</h2>
+        <a class="more" href={u('/projects')}>더보기 +</a>
+      </div>
+      <ul class="list">
+        {recentProjects.map((p) => (
+          <li class="row">
+            <span class={`badge ${p.status === '진행' ? 'on' : ''}`}>{p.status}</span>
+            <span>
+              <span class="t" style="display:block">{p.title}</span>
+              <span class="m">{[projectPeriod(p), p.role].filter(Boolean).join(' · ')}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  </div>
+
+  {site.research_areas.length > 0 && (
+    <section>
+      <h2 class="section-title">연구 분야</h2>
+      <div class="areas">
+        {site.research_areas.map((a) => (
+          <div class="area">
+            <Icon name={a.icon} size={28} color="#1B4F8C" />
+            <div><b>{a.title}</b><span>{a.keywords}</span></div>
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <div class="prof-row">
+    <section class="prof">
+      <div class="photo">{professor.photo ? <img src={u(`/photos/${professor.photo}`)} alt={`${professor.name} 교수`} /> : <Icon name="person" size={40} color="#8A919C" />}</div>
+      <div class="prof-body">
+        <div class="prof-name">
+          <span><span class="n">{professor.name}</span><span class="p">{professor.position}</span></span>
+          <a class="small" href={u('/about#professor')}>교수 소개 +</a>
+        </div>
+        <div class="prof-facts">
+          {professor.highlights.map((t) => <span>{t}</span>)}
+        </div>
+        <span class="small">{[professor.email, professor.tel].filter(Boolean).join(' · ')}</span>
+      </div>
+    </section>
+    <a class="count-card" href={u('/members')}>
+      <span class="h">구성원</span>
+      <span class="counts">
+        <span><b>{current}</b><span class="small">재학 연구원</span></span>
+        <span><b>{alumni}</b><span class="small">졸업생</span></span>
+      </span>
+      <span class="small">구성원 보기 +</span>
+    </a>
+  </div>
+</Base>
+
+<script>
+  const tabs = document.querySelectorAll('[role="tab"]');
+  tabs.forEach((tab) =>
+    tab.addEventListener('click', () => {
+      tabs.forEach((t) => {
+        const on = t === tab;
+        t.setAttribute('aria-selected', String(on));
+        document.getElementById(t.getAttribute('aria-controls')).hidden = !on;
+      });
+    }),
+  );
+</script>
