@@ -24,8 +24,6 @@ const recentProjects = sortByDateDesc(projects, 'start')
   .sort((a, b) => (a.status === b.status ? 0 : a.status === '진행' ? -1 : 1))
   .slice(0, 4);
 
-const current = members.filter((m) => m.status === '재학').length;
-const alumni = members.filter((m) => m.status === '졸업').length;
 ---
 <Base>
   <section class="hero" slot="top">
@@ -137,14 +135,6 @@ const alumni = members.filter((m) => m.status === '졸업').length;
         <span class="small">{[professor.email, professor.tel].filter(Boolean).join(' · ')}</span>
       </div>
     </section>
-    <a class="count-card" href={u('/members')}>
-      <span class="h">구성원</span>
-      <span class="counts">
-        <span><b>{current}</b><span class="small">재학 연구원</span></span>
-        <span><b>{alumni}</b><span class="small">졸업생</span></span>
-      </span>
-      <span class="small">구성원 보기 +</span>
-    </a>
   </div>
 </Base>
 
