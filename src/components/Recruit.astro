@@ -1,0 +1,16 @@
+---
+// 연구원 모집 안내 (site.yaml 의 recruit.show 가 true 일 때만 표시)
+import { loadAll } from '../lib/data.mjs';
+const { site } = loadAll();
+const r = site.recruit;
+---
+{r?.show && (
+  <section class="recruit" aria-label="연구원 모집">
+    <span class="recruit-tag">모집</span>
+    <div class="recruit-body">
+      <strong class="recruit-title">{r.title}</strong>
+      {r.details.length > 0 && <ul>{r.details.map((d) => <li>{d}</li>)}</ul>}
+    </div>
+    {r.contact && <span class="recruit-contact">문의 {r.contact}</span>}
+  </section>
+)}

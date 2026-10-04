@@ -75,6 +75,12 @@ const siteSchema = z.object({
   intro: opt,
   contact: z.object({ address: opt, email: opt, tel: opt, fax: opt }),
   links: z.array(z.object({ label: req('링크 이름'), url: req('링크 주소') })).default([]),
+  courses: z
+    .array(z.object({ term: req('학기'), undergrad: z.array(text).default([]), graduate: z.array(text).default([]) }))
+    .default([]),
+  recruit: z
+    .object({ show: bool.default(false), title: req('모집 제목'), details: z.array(text).default([]), contact: opt })
+    .optional(),
   research_areas: z
     .array(
       z.object({

@@ -19,7 +19,7 @@ links:
   - label: 국립공주대학교
     url: https://www.kongju.ac.kr
   - label: 보건행정학과
-    url: https://www.kongju.ac.kr
+    url: https://dhm.kongju.ac.kr/sites/ZH0310/index.do
 
 # 연구 분야 (홈과 '연구' 페이지에 표시)
 research_areas:
@@ -35,3 +35,33 @@ research_areas:
   - title: 보건의료기술평가
     keywords: HTA · 디지털 치료기기 · AI 의료기기
     icon: check
+
+# 교과목 소개 (연구실 소개 페이지에 표시)
+#   undergrad: 학부 과목 / graduate: 대학원 과목
+courses:
+  - term: 1학기
+    undergrad:
+      - 의료의 질관리
+      - 병리학
+      - 건강정보보호
+      - 보건프로그램 개발 및 평가
+    graduate:
+      - 노인보건학
+      - 근거중심보건의료
+  - term: 2학기
+    undergrad:
+      - 조사방법론
+      - 보건교육
+      - 건강보험실무
+    graduate:
+      - 비교의료제도론
+      - 제약산업론
+
+# 모집 공고 (홈 화면과 연구실 소개 페이지에 표시). 모집이 끝나면 show: false
+recruit:
+  show: true
+  title: 함께 연구를 진행할 전임 연구원 (혹은 연구교수, 박사후 연구원) 모집
+  details:
+    - 재택근무 가능 (급여 문의가능)
+    - 아울러 공주대 보건행정학과에서는 석사 및 박사과정을 운영합니다.
+  contact: sttone@kongju.ac.kr · 041-850-0325

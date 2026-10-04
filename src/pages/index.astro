@@ -2,6 +2,7 @@
 import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import Authors from '../components/Authors.astro';
+import Recruit from '../components/Recruit.astro';
 import { loadAll, projectStatus, projectPeriod, sortByDateDesc, formatDate } from '../lib/data.mjs';
 import { u } from '../lib/url.mjs';
 
@@ -106,6 +107,8 @@ const recentProjects = sortByDateDesc(projects, 'start')
       </ul>
     </section>
   </div>
+
+  <Recruit />
 
   {site.research_areas.length > 0 && (
     <section>
