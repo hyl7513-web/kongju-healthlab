@@ -17,7 +17,7 @@
   note: 학·석사 연계생
   email: ye3762@naver.com
   email_public: true
-  photo: ""
+  photo: heo-yerin.jpg
 
 - id: jeong-chiyeon
   name: 정치연
@@ -26,7 +26,7 @@
   note: 학·석사 연계생
   email: jh164614@gmail.com
   email_public: true
-  photo: ""
+  photo: jeong-chiyeon.jpg
 
 - id: lee-yeongyeong
   name: 이연경
@@ -35,7 +35,7 @@
   note: ""
   email: dldusrud050902@gmail.com
   email_public: true
-  photo: ""
+  photo: lee-yeongyeong.jpg
 
 - id: park-jeongyeon
   name: 박정연
@@ -45,7 +45,7 @@
   current: 국립암센터 암관리사업본부 암관리정책부
   email: jyp1021m330@naver.com
   email_public: true
-  photo: ""
+  photo: park-jeongyeon.jpg
   cv:
     education:
       - period: 2023.09 – 2025.02
@@ -86,4 +86,4 @@
   current: ""
   email: eunji020530@gmail.com
   email_public: true
-  photo: ""
+  photo: jo-minsol.jpg
