@@ -32,7 +32,8 @@ const nav = [
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={desc} />
     <meta property="og:type" content="website" />
-    <link rel="icon" href={u('/favicon.svg')} type="image/svg+xml" />
+    <link rel="icon" href={u('/favicon.png')} type="image/png" />
+    <link rel="apple-touch-icon" href={u('/logo.png')} />
   </head>
   <body>
     <a class="skip" href="#content">본문 바로가기</a>
@@ -51,7 +52,7 @@ const nav = [
     <header class="header">
       <div class="wrap">
         <a class="brand" href={u('/')}>
-          <Icon name="logo" size={38} color="#152B4E" />
+          <img class="brand-logo" src={u('/logo.png')} alt="" width="58" height="58" />
           <span class="brand-text">
             <span class="brand-ko">{site.name_ko}</span>
             <span class="brand-en">{site.name_en} · KNU</span>
