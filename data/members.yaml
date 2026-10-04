@@ -55,6 +55,15 @@
   email_public: true
   photo: park-ieun.jpg
 
+- id: lee-yeonjeong
+  name: 이연정
+  status: 재학
+  course: 학부연구생
+  note: ""
+  email: so71242@naver.com
+  email_public: true
+  photo: lee-yeonjeong.jpg
+
 - id: park-jeongyeon
   name: 박정연
   status: 졸업
