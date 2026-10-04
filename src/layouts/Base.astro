@@ -1,4 +1,9 @@
 ---
+import '@fontsource/noto-sans-kr/400.css';
+import '@fontsource/noto-sans-kr/500.css';
+import '@fontsource/noto-sans-kr/700.css';
+import '@fontsource/noto-serif-kr/600.css';
+import '@fontsource/noto-serif-kr/700.css';
 import '../styles/global.css';
 import Icon from '../components/Icon.astro';
 import { loadAll } from '../lib/data.mjs';
@@ -28,9 +33,6 @@ const nav = [
     <meta property="og:description" content={desc} />
     <meta property="og:type" content="website" />
     <link rel="icon" href={u('/favicon.svg')} type="image/svg+xml" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;700&display=swap" />
   </head>
   <body>
     <a class="skip" href="#content">본문 바로가기</a>

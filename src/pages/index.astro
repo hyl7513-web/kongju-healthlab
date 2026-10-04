@@ -29,12 +29,14 @@ const alumni = members.filter((m) => m.status === '졸업').length;
 ---
 <Base>
   <section class="hero" slot="top">
+    <svg class="hero-emblem" viewBox="0 0 38 38" fill="none" aria-hidden="true"><rect x="1" y="1" width="36" height="36" rx="2" /><path d="M19 4v30M4 19h30" /><circle cx="19" cy="19" r="9.5" /><circle cx="19" cy="19" r="14" /></svg>
     <div class="wrap">
       <div class="hero-text">
+        <span class="hero-eyebrow">Kongju National University</span>
         <span class="hero-kicker">{site.university} {site.college} {site.department}</span>
         <h1>{site.name_ko}</h1>
         <span class="hero-en">{site.name_en}</span>
-        {site.slogan && <span class="hero-slogan">{site.slogan}</span>}
+        {site.slogan && <p class="hero-slogan">{site.slogan}</p>}
       </div>
       <nav class="quick" aria-label="바로가기">
         <a href={u('/projects')}><Icon name="doc" color="#fff" />연구과제</a>
