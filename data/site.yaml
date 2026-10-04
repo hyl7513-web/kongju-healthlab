@@ -21,20 +21,24 @@ links:
   - label: 보건행정학과
     url: https://dhm.kongju.ac.kr/sites/ZH0310/index.do
 
-# 연구 분야 (홈과 '연구' 페이지에 표시)
-research_areas:
-  - title: 의약품 정책
-    keywords: 약가제도 · 수급불안정 의약품 · 공급망
-    icon: pill
-  - title: 항생제·감염병
-    keywords: 항생제 사용량 감시 · 표본감시 평가
-    icon: virus
-  - title: 노인·만성질환
-    keywords: 다약제 사용 · 의료비 · 건강정보이해능력
-    icon: person
-  - title: 보건의료기술평가
-    keywords: HTA · 디지털 치료기기 · AI 의료기기
-    icon: check
+# 연구 분야 (홈과 '연구실 소개' 페이지에 표시)
+research_summary: Healthcare access and outcomes across medicines, medical devices, and aging populations
+research_topics:
+  - 의료기술 건강보험급여 정책
+  - 건강보험 정책
+  - 약제비 관리 정책
+  - 의료기술평가
+  - 노인건강
+  - 노쇠, 노인 낙상
+  - 노인 다약제
+  - 디지털 리터러시
+  - 의료의 질 및 환자안전
+  - 항생제 내성관리
+  - 의료의 질평가
+  - 의약품 사용평가 및 안전사용
+  - 보건의료 데이터 분석
+  - 건강보험청구자료 활용 연구
+  - 공공데이터 활용 분석연구
 
 # 교과목 소개 — 현재 사이트에서 뺌. 다시 보이게 하려면 아래 줄들 앞의 "# " 를 지우면 됩니다.
 #   (undergrad: 학부 과목 / graduate: 대학원 과목)

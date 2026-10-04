@@ -18,17 +18,11 @@ const mapQuery = encodeURIComponent(site.contact.address.replace(/\s*\(.*$/, '')
     <p style="margin:0;font-size:16px;line-height:1.8;max-width:860px">{site.intro}</p>
   </section>
 
-  {site.research_areas.length > 0 && (
+  {site.research_topics.length > 0 && (
     <section>
       <h2 class="section-title">연구 분야</h2>
-      <div class="areas">
-        {site.research_areas.map((a) => (
-          <div class="area">
-            <Icon name={a.icon} size={28} color="#1F6161" />
-            <div><b>{a.title}</b><span>{a.keywords}</span></div>
-          </div>
-        ))}
-      </div>
+      {site.research_summary && <p class="research-summary">{site.research_summary}</p>}
+      <ul class="topics">{site.research_topics.map((t) => <li>{t}</li>)}</ul>
     </section>
   )}
 

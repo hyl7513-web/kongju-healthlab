@@ -81,15 +81,8 @@ const siteSchema = z.object({
   recruit: z
     .object({ show: bool.default(false), title: req('모집 제목'), details: z.array(text).default([]), contact: opt })
     .optional(),
-  research_areas: z
-    .array(
-      z.object({
-        title: req('연구 분야 이름'),
-        keywords: opt,
-        icon: z.enum(['pill', 'virus', 'person', 'check', 'chart', 'book'], { error: 'icon 은 pill, virus, person, check, chart, book 중 하나' }).default('book'),
-      }),
-    )
-    .default([]),
+  research_summary: opt,
+  research_topics: z.array(text).default([]),
 });
 
 const professorSchema = z.object({

@@ -28,10 +28,8 @@ const recentProjects = sortByDateDesc(projects, 'start')
 ---
 <Base>
   <section class="hero" slot="top">
-    <svg class="hero-emblem" viewBox="0 0 38 38" fill="none" aria-hidden="true"><rect x="1" y="1" width="36" height="36" rx="2" /><path d="M19 4v30M4 19h30" /><circle cx="19" cy="19" r="9.5" /><circle cx="19" cy="19" r="14" /></svg>
     <div class="wrap">
       <div class="hero-text">
-        <span class="hero-eyebrow">Kongju National University</span>
         <span class="hero-kicker">{site.university} {site.college} {site.department}</span>
         <h1>{site.name_ko}</h1>
         <span class="hero-en">{site.name_en}</span>
@@ -110,17 +108,11 @@ const recentProjects = sortByDateDesc(projects, 'start')
 
   <Recruit />
 
-  {site.research_areas.length > 0 && (
+  {site.research_topics.length > 0 && (
     <section>
       <h2 class="section-title">연구 분야</h2>
-      <div class="areas">
-        {site.research_areas.map((a) => (
-          <div class="area">
-            <Icon name={a.icon} size={28} color="#1F6161" />
-            <div><b>{a.title}</b><span>{a.keywords}</span></div>
-          </div>
-        ))}
-      </div>
+      {site.research_summary && <p class="research-summary">{site.research_summary}</p>}
+      <ul class="topics">{site.research_topics.map((t) => <li>{t}</li>)}</ul>
     </section>
   )}
 
