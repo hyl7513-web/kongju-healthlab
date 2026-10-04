@@ -43,7 +43,8 @@ h1, h2, h3 { margin: 0; }
 /* ── 상단 유틸리티 바 ── */
 .util { background: var(--bg-util); border-bottom: 1px solid var(--line); }
 .util .wrap { height: 34px; display: flex; align-items: center; justify-content: flex-end; gap: 20px; font-size: 12px; color: var(--muted); }
-.util .sep { color: #c4cace; }
+.util .sep { display: block; width: 1px; height: 11px; background: #c4cace; }
+.util a { line-height: 1; }
 
 /* ── 헤더 ── */
 .header { border-bottom: 1px solid var(--line); background: #fff; position: relative; }

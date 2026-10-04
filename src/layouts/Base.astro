@@ -41,11 +41,11 @@ const nav = [
       <div class="wrap">
         {site.links.map((l, i) => (
           <>
-            {i > 0 && <span class="sep">|</span>}
+            {i > 0 && <span class="sep" aria-hidden="true"></span>}
             <a href={l.url} target="_blank" rel="noopener">{l.label}</a>
           </>
         ))}
-        <span class="sep">|</span>
+        <span class="sep" aria-hidden="true"></span>
         <a href={u('/about#location')}>오시는 길</a>
       </div>
     </div>
