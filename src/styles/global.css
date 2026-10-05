@@ -51,7 +51,7 @@ h1, h2, h3 { margin: 0; }
 .header .wrap { height: 84px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .brand { display: flex; align-items: center; gap: 12px; }
 .brand:hover { text-decoration: none; color: inherit; }
-.brand-text { display: flex; flex-direction: column; line-height: 1.25; }
+.brand-text { display: flex; flex-direction: column; gap: 4px; line-height: 1.25; }
 .brand-ko { font-family: var(--serif); font-weight: 700; font-size: 20px; color: var(--navy); }
 .brand-en { font-size: 11px; color: #6a7374; letter-spacing: 0.04em; }
 .gnb { display: flex; align-items: center; gap: 4px; font-size: 16px; font-weight: 500; }
