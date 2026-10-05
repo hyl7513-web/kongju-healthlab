@@ -25,47 +25,32 @@ const recentProjects = sortByDateDesc(projects, 'start')
   .sort((a, b) => (a.status === b.status ? 0 : a.status === '진행' ? -1 : 1))
   .slice(0, 4);
 
-// 표지 오른쪽 안내판에 쓰는 수치 (데이터 파일에서 자동 계산)
-const years = papers.map((p) => +p.year);
-const paperRange = `${Math.min(...years)}–${Math.max(...years)}`;
-const intlCount = papers.filter((p) => p.scope === '국제').length;
-const ongoingCount = projects.filter((p) => projectStatus(p, today) === '진행').length;
-const leadCount = projects.filter((p) => /책임/.test(p.role)).length;
-const currentCount = members.filter((m) => m.status === '재학').length;
 ---
 <Base>
   <section class="hero" slot="top">
+    <svg class="hero-mark" viewBox="0 0 200 200" aria-hidden="true">
+      <circle cx="100" cy="100" r="62" fill="none" stroke="#fff" stroke-width="0.4" stroke-opacity="0.14" />
+      <g fill="#fff">
+        <polygon points="100,100 139,61 108,92" opacity="0.05" /><polygon points="100,100 108,108 139,139" opacity="0.08" />
+        <polygon points="100,100 61,139 92,108" opacity="0.05" /><polygon points="100,100 92,92 61,61" opacity="0.08" />
+        <polygon points="100,100 100,6 114,86" opacity="0.10" /><polygon points="100,100 86,86 100,6" opacity="0.05" />
+        <polygon points="100,100 194,100 114,114" opacity="0.10" /><polygon points="100,100 114,86 194,100" opacity="0.05" />
+        <polygon points="100,100 100,194 86,114" opacity="0.10" /><polygon points="100,100 114,114 100,194" opacity="0.05" />
+        <polygon points="100,100 6,100 86,86" opacity="0.10" /><polygon points="100,100 86,114 6,100" opacity="0.05" />
+      </g>
+    </svg>
     <div class="wrap">
       <div class="hero-text">
-        <p class="hero-kicker">{site.university} &nbsp;|&nbsp; {site.college} {site.department}</p>
+        <span class="hero-kicker">{site.university} {site.college} {site.department}</span>
         <h1>{site.name_ko}</h1>
-        <p class="hero-en">{site.name_en}</p>
-        <div class="hero-desc">
-          {site.slogan && <p class="hero-slogan">{site.slogan}</p>}
-          {site.intro && <p class="hero-intro">{site.intro.replace(/^.*?입니다\.\s*/, '')}</p>}
-        </div>
+        <span class="hero-en">{site.name_en}</span>
+        {site.slogan && <p class="hero-slogan">{site.slogan}</p>}
       </div>
-      <nav class="hero-index" aria-label="바로가기">
-        <a href={u('/publications')}>
-          <span class="hi-label">게재 논문</span>
-          <span class="hi-value"><b>{papers.length}</b>편</span>
-          <span class="hi-sub">{paperRange} · 국제 {intlCount}편</span>
-        </a>
-        <a href={u('/projects')}>
-          <span class="hi-label">연구과제</span>
-          <span class="hi-value"><b>{projects.length}</b>건</span>
-          <span class="hi-sub">진행 {ongoingCount}건 · 책임 {leadCount}건</span>
-        </a>
-        <a href={u('/members')}>
-          <span class="hi-label">구성원</span>
-          <span class="hi-value"><b>{currentCount}</b>명</span>
-          <span class="hi-sub">재학 연구원</span>
-        </a>
-        <a href={u('/about#location')}>
-          <span class="hi-label">오시는 길</span>
-          <span class="hi-value hi-text">간호보건대학 430호</span>
-          <span class="hi-sub">{site.contact.tel}</span>
-        </a>
+      <nav class="quick" aria-label="바로가기">
+        <a href={u('/projects')}><Icon name="doc" color="#fff" />연구과제</a>
+        <a href={u('/publications')}><Icon name="book" color="#fff" />게재 논문</a>
+        <a href={u('/members')}><Icon name="people" color="#fff" />구성원</a>
+        <a href={u('/about#location')}><Icon name="pin" color="#fff" />오시는 길</a>
       </nav>
     </div>
   </section>
