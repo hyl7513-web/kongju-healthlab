@@ -82,6 +82,8 @@ const siteSchema = z.object({
     .object({ show: bool.default(false), title: req('모집 제목'), details: z.array(text).default([]), contact: opt })
     .optional(),
   research_summary: opt,
+  google_site_verification: opt,
+  naver_site_verification: opt,
   research_topics: z.array(text).default([]),
 });
 

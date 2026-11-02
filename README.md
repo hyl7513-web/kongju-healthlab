@@ -107,6 +107,13 @@
 
 ---
 
+## 검색엔진 등록 (Google · 네이버)
+사이트맵 주소: `https://hyl7513-web.github.io/kongju-healthlab/sitemap.xml`
+1. **Google Search Console** → 속성 추가 → **URL 접두어** 에 `https://hyl7513-web.github.io/kongju-healthlab/` 입력
+   → 확인 방법 **HTML 태그** 선택 → `content="…"` 안의 값만 복사해 `data/site.yaml` 의 `google_site_verification` 에 붙여넣고 저장
+   → 배포가 끝나면 Search Console 에서 **확인** → 왼쪽 **Sitemaps** 에 `sitemap.xml` 제출
+2. **네이버 서치어드바이저** (searchadvisor.naver.com) → 사이트 등록 → **HTML 태그** 방식 → 값을 `naver_site_verification` 에 붙여넣기 → 확인 후 사이트맵 제출
+
 ## 처음 한 번만 하는 설정
 저장소 **Settings → Pages → Build and deployment → Source** 를 **GitHub Actions** 로 바꿉니다.
 

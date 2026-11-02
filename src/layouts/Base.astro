@@ -9,10 +9,28 @@ import Icon from '../components/Icon.astro';
 import { loadAll } from '../lib/data.mjs';
 import { u } from '../lib/url.mjs';
 
-const { title, description, current } = Astro.props;
-const { site } = loadAll();
-const pageTitle = title ? `${title} | ${site.name_ko}` : `${site.university} ${site.name_ko}`;
-const desc = description ?? site.intro;
+const { title, description, current, noindex = false } = Astro.props;
+const { site, professor } = loadAll();
+const fullName = `${site.university} ${site.department} ${site.name_ko}`;
+const pageTitle = title ? `${title} | ${site.university} ${site.name_ko}` : `${fullName} (${site.name_en})`;
+const desc = description ?? `${fullName}(지도교수 ${professor.name}) 홈페이지. ${site.intro.replace(/^.*?입니다\.\s*/, '')}`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const abs = (p) => new URL(u(p), Astro.site).href;
+// 검색엔진용 구조화 데이터 (연구 조직 정보)
+const jsonld = {
+  '@context': 'https://schema.org',
+  '@type': 'ResearchOrganization',
+  name: fullName,
+  alternateName: [site.name_ko, `공주대 ${site.name_ko}`, site.name_en],
+  url: abs('/'),
+  logo: abs('/logo.png'),
+  email: site.contact.email,
+  telephone: site.contact.tel,
+  address: { '@type': 'PostalAddress', streetAddress: site.contact.address, addressCountry: 'KR' },
+  parentOrganization: { '@type': 'CollegeOrUniversity', name: site.university, department: site.department },
+  employee: { '@type': 'Person', name: professor.name, alternateName: professor.name_en, jobTitle: professor.position, email: professor.email },
+  knowsAbout: site.research_topics,
+};
 
 const nav = [
   { key: 'about', label: '연구실 소개', href: u('/about') },
@@ -32,6 +50,15 @@ const nav = [
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={desc} />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={fullName} />
+    <meta property="og:locale" content="ko_KR" />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    {site.google_site_verification && <meta name="google-site-verification" content={site.google_site_verification} />}
+    {site.naver_site_verification && <meta name="naver-site-verification" content={site.naver_site_verification} />}
+    <link rel="sitemap" href={u('/sitemap.xml')} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />
     <meta property="og:image" content={new URL(u('/logo.png'), Astro.site).href} />
     <link rel="icon" href={u('/favicon.png')} type="image/png" />
     <link rel="apple-touch-icon" href={u('/logo.png')} />

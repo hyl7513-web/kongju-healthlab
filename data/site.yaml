@@ -21,6 +21,10 @@ links:
   - label: 보건행정학과
     url: https://dhm.kongju.ac.kr/sites/ZH0310/index.do
 
+# 검색엔진 소유 확인 코드 (Google Search Console / 네이버 서치어드바이저에서 받은 content 값만 붙여넣기)
+google_site_verification: ""
+naver_site_verification: ""
+
 # 연구 분야 (홈과 '연구실 소개' 페이지에 표시)
 research_summary: Healthcare access and outcomes across medicines, medical devices, and aging populations
 research_topics:
